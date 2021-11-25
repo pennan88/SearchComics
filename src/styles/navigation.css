@@ -1,0 +1,29 @@
+.header {
+  border: 1px black solid;
+  min-height: 6vh;
+  display: flex;
+  justify-content: center;
+}
+
+.innerHeader {
+  border: 1px green solid;
+  display: flex;
+  max-width: 1600px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.brand {
+  width: 100%;
+}
+.navList {
+  display: flex;
+  border: 1px blue solid;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navItem {
+  cursor: pointer;
+}
