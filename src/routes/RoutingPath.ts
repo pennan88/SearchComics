@@ -1,5 +1,5 @@
-const homeView = "./home";
-const allHeroes = "./allHeroes";
+const homeView = "/home";
+const allHeroes = "/allHeroes";
 
 export default {
   homeView,

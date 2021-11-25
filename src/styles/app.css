@@ -1,11 +1,25 @@
-body,
-html {
+@font-face {
+  font-family: "ComicFont";
+  src: url("../shared/fonts/BADABB__.TTF")
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "ComicFont", 'Times New Roman', Times, serif;
+ 
 }
 .wrapper {
-  height: 100vh;
   width: 100vw;
-  background-color: orangered;
+  max-width: 100vw;
+  background: url(../shared/images/279.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  
 }

@@ -1,24 +1,55 @@
+:root {
+  --max-width: 1000px
+}
+
+
 .header {
-  border: 1px black solid;
   min-height: 6vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #73BCE9;
+
+}
+.bg{
+  background-color: #73BCE9;
+  width: 100%;
+}
+.headerBackground{
+  background: url("../shared/images/headerbackground.jpg");
+  background-position: center;
+  height: 25vh;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.headerBackground h1 {
+  margin-top: 35px;
+  color: black;
+  letter-spacing: 5px;
+  transform: rotate(-10deg);
+  font-size: 4em;
+  font-weight: bold;
+  text-shadow: 5px 0 #73BCE9, 0 1px #73BCE9, 1px 0 #73BCE9, 0 -1px #73BCE9;
 }
 
 .innerHeader {
-  border: 1px green solid;
-  display: flex;
-  max-width: 1600px;
   width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  height: 5vh;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
 }
 .brand {
   width: 100%;
 }
 .navList {
   display: flex;
-  border: 1px blue solid;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -26,4 +57,5 @@
 
 .navItem {
   cursor: pointer;
+  font-size: 22px;
 }

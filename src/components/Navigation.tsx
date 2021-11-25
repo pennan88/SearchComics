@@ -6,13 +6,14 @@ export const Navigation = () => {
   const navigate = useNavigate();
   return (
     <div className="header">
+      <div className="headerBackground"><h1>Comic Search</h1></div>
       <div className="innerHeader">
         <div className="brand">
-          <img src="" alt="Error" />
+          <h1>Comic Search</h1>
         </div>
         <div className="navList">
           <p className="navItem" onClick={() => navigate(RoutingPath.homeView)}>
-            Hem
+            Home
           </p>
           <p
             className="navItem"
