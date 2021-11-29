@@ -1,91 +1,93 @@
 .homeWrapper {
-    height: 100vh;
-    max-width: var(--max-width);
-    width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--max-width);
+  width: 100%;
 }
 
 .homeMainContainer {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
+  width: 100%;
+  display: flex;
 
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-.homeImageContainer{
-    width: 300px;
-    height: 350px;
-    margin-right: 50px;
+.homeImageContainer {
+  width: 300px;
+  height: 350px;
+  margin-right: 50px;
 }
 
 .homeImageContainer img {
-    width: inherit;
-    height: inherit;
-    border: 3px black solid;
-    color: red;
-    letter-spacing: 2px;
-    background-color: black;
-
+  width: inherit;
+  height: inherit;
+  border: 3px black solid;
+  color: red;
+  letter-spacing: 2px;
+  background-color: black;
 }
 
+.homeContentContainer {
+  border: 3px black solid;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: white;
+}
+.homeContentContainer h1 {
+  letter-spacing: 2px;
+}
+.homeContentContainer h1,
+.homeContentContainer p {
+  margin: 10px;
+}
+.homeContentContainer p {
+  letter-spacing: 1px;
+}
 
-.homeContentContainer{
-    border: 3px black solid;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: white;
-    
+.homeSecondConetentContainer {
+  border-top: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(211, 211, 211);
 }
-.homeContentContainer h1{
-    letter-spacing: 2px;
-}
-.homeContentContainer h1, .homeContentContainer p {
-    margin: 10px;
-}
-.homeContentContainer p{
-    letter-spacing: 1px;
-}
-
-.homeSecondConetentContainer{
-    border-top: 1px black solid;
-    display: flex;
-    background-color: rgb(211, 211, 211);
-}
-.ctn-btn{
-    background-color: green;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 7px;
-    border-radius: 5px;
-    border: black 1px solid;
-    cursor: pointer;
+.ctn-btn {
+  background-color: green;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: black 1px solid;
+  cursor: pointer;
 }
 
 .ctn-btn p {
-    color: white;
-    letter-spacing: 2px;
-    
+  color: white;
+  letter-spacing: 2px;
 }
 
-.homeComicsContainer{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
+.homeComicsContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
-.comicCardContainer{
-    margin: 0 10px;
-    max-height: 454px;
-    max-width: 304px;
+.comicCardContainer {
+  margin: 0 10px;
+  max-height: 454px;
+  max-width: 304px;
 }
 
 .comicCardContainer img {
-    border: 2px black solid;
-    max-width: inherit;
-    max-height: inherit;
-
+  border: 2px black solid;
+  max-width: inherit;
+  max-height: inherit;
 }

@@ -1,18 +1,24 @@
 import { useContext, useEffect } from "react";
 import { RandomCharacter } from "../../components/RandomCharacter";
 import { RandomComic } from "../../components/RandomComic";
-import { RandomNumContext } from "../../hooks/ContextRandomGen";
+import { RandomNumberContext } from "../../shared/provider/RandomNumberProvider";
+import { RandomOffsetContext } from "../../shared/provider/RandomOffsetProvider";
 import "../../styles/home.css";
 export const HomeView = () => {
-  // const [randomNum, setRandomNum] = useState(0)
-  const { setRandomNum } = useContext(RandomNumContext);
+  const { setRandomNumber } = useContext(RandomNumberContext);
+  const { setRandomOffset } = useContext(RandomOffsetContext);
 
   const randomNumberGen = (max: number) => {
-    return setRandomNum(Math.floor(Math.random() * max));
+    return setRandomNumber(Math.floor(Math.random() * max));
+  };
+
+  const randomOffset = (max: number) => {
+    return setRandomOffset(Math.floor(Math.random() * max));
   };
 
   useEffect(() => {
     randomNumberGen(100);
+    randomOffset(1400);
   }, []);
   return (
     <div className="homeWrapper">
@@ -20,9 +26,9 @@ export const HomeView = () => {
         <RandomCharacter />
       </div>
       <div className="homeComicsContainer">
-      <RandomComic />
-      <RandomComic />
-      <RandomComic />
+        <RandomComic />
+        <RandomComic />
+        <RandomComic />
       </div>
     </div>
   );

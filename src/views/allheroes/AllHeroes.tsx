@@ -1,3 +1,3 @@
 export const AllHeroes = () => {
-  return <div>All heroes</div>;
+  return <div className="homeWrapper">All heroes</div>;
 };

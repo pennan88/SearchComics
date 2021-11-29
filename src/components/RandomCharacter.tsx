@@ -1,17 +1,21 @@
 import { useContext, useEffect, useState } from "react";
-import { RandomNumContext } from "../hooks/ContextRandomGen";
 import PlaceHolader from "../shared/images/placeholder.png";
 import MarvelService from "../shared/api/services/marvelapi/MarvelService";
+import { RandomNumberContext } from "../shared/provider/RandomNumberProvider";
+import { RandomOffsetContext } from "../shared/provider/RandomOffsetProvider";
 
 export const RandomCharacter = () => {
   const [characters, setCharacters] = useState([]) as any;
-  const { randomNum } = useContext(RandomNumContext);
+  const [copyWrite, setCopyWrite] = useState() as any;
+  const { randomNumber } = useContext(RandomNumberContext);
+  const { randomOffset } = useContext(RandomOffsetContext);
 
   const getCharacters = async () => {
     try {
-      const { data } = await MarvelService.getRandomCharacters();
-      console.log(data.data.results);
+      const { data } = await MarvelService.getRandomCharacters(randomOffset);
+      console.log(await MarvelService.getRandomCharacters(randomOffset));
       setCharacters(data.data.results);
+      setCopyWrite(data.attributionText);
     } catch (error) {
       console.log(error);
     }
@@ -26,8 +30,8 @@ export const RandomCharacter = () => {
       <div className="homeImageContainer">
         <img
           src={
-            characters?.[randomNum]?.thumbnail?.path
-              ? characters?.[randomNum]?.thumbnail?.path +
+            characters?.[randomNumber]?.thumbnail?.path
+              ? characters?.[randomNumber]?.thumbnail?.path +
                 "/portrait_uncanny.jpg"
               : PlaceHolader
           }
@@ -35,16 +39,17 @@ export const RandomCharacter = () => {
         />
       </div>
       <div className="homeContentContainer">
-        <h1>{characters[randomNum]?.name}</h1>
+        <h1>{characters[randomNumber]?.name}</h1>
         <p>
-          {characters[randomNum]?.description
-            ? characters[randomNum]?.description
+          {characters[randomNumber]?.description
+            ? characters[randomNumber]?.description
             : "No available description"}
         </p>
         <div className="homeSecondConetentContainer">
           <div className="ctn-btn">
             <p>Learn more!</p>
           </div>
+          <p>{copyWrite}</p>
         </div>
       </div>
     </>

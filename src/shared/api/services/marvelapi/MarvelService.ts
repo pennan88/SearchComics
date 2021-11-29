@@ -1,14 +1,13 @@
 import http from "../../MarvelAPI";
 
-const getRandomCharacters = () => {
-  return http.get("/characters?limit=100");
+const getRandomCharacters = (offset: any) => {
+  return http.get(`/characters?limit=100&offset=${offset}`);
 };
 
-const getRandomComic = () => {
-  return http.get("/comics?limit=100");
-
-}
+const getRandomComic = (offset: any) => {
+  return http.get(`/comics?limit=100&offset=${offset}`);
+};
 export default {
   getRandomCharacters,
-  getRandomComic
+  getRandomComic,
 };

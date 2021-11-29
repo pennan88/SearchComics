@@ -23,7 +23,7 @@ export const Navigation = () => {
           </p>
           <p
             className="navItem"
-            onClick={() => navigate(RoutingPath.allHeroes)}
+            onClick={() => navigate(RoutingPath.searchHeroes)}
           >
             Search heroes
           </p>
