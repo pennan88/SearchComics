@@ -8,7 +8,7 @@ export const RandomComic = () => {
   const { randomOffset } = useContext(RandomOffsetContext);
   const getComics = async () => {
     try {
-      const { data } = await MarvelService.getRandomComic(49000);
+      const { data } = await MarvelService.getRandomComic(randomOffset);
       console.log(data);
       setComic(data.data.results);
     } catch (error) {
