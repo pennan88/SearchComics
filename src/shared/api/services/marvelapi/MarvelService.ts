@@ -11,8 +11,13 @@ const getRandomComic = (offset: any) => {
 const searchCharacter = (name: string | undefined) => {
   return http.get(`/characters?nameStartsWith=${name}`);
 };
+
+const getSpcificHero = (id: number) => {
+  return http.get(`/characters/${id}`);
+};
 export default {
   getRandomCharacters,
   getRandomComic,
   searchCharacter,
+  getSpcificHero,
 };
