@@ -1,7 +1,6 @@
 :root {
-  --max-width: 1000px
+  --max-width: 1000px;
 }
-
 
 .header {
   min-height: 6vh;
@@ -10,14 +9,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #73BCE9;
-
+  background: #73bce9;
 }
-.bg{
-  background-color: #73BCE9;
+.bg {
+  background-color: #73bce9;
   width: 100%;
 }
-.headerBackground{
+.headerBackground {
   background: url("../shared/images/headerbackground.jpg");
   background-position: center;
   height: 25vh;
@@ -34,7 +32,7 @@
   transform: rotate(-10deg);
   font-size: 4em;
   font-weight: bold;
-  text-shadow: 5px 0 #73BCE9, 0 1px #73BCE9, 1px 0 #73BCE9, 0 -1px #73BCE9;
+  text-shadow: 5px 0 #73bce9, 0 1px #73bce9, 1px 0 #73bce9, 0 -1px #73bce9;
 }
 
 .innerHeader {
@@ -58,4 +56,11 @@
 .navItem {
   cursor: pointer;
   font-size: 22px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  color: #ed9526;
+  transform: scale(120%);
 }

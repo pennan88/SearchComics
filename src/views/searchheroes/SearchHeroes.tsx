@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { SearchCharacter } from "../../components/SearchCharacter";
-import MarvelService from "../../shared/api/services/marvelapi/MarvelService";
-import "../../styles/searchherores.css";
 import { useDebounce } from "../../hooks/useDebounce";
+import RoutingPath from "../../routes/RoutingPath";
+import MarvelService from "../../shared/api/services/marvelapi/MarvelService";
+import { HeroIdContext } from "../../shared/provider/HeroIdProvider";
+import "../../styles/searchherores.css";
 
 export const SearchHeroes = () => {
-  const [characterName, setCharacterName] = useState([]) as any;
-  const [search, setSearch] = useState<string>("");
+  const [characterName, setCharacterName] = useState() as any;
+  const [search, setSearch] = useState<string>("Spider");
+  const { setHeroId } = useContext(HeroIdContext);
   const searchTerm = useDebounce(search, 500);
+  const navigate = useNavigate();
 
   const searchCharacter = async () => {
     try {
@@ -19,19 +24,36 @@ export const SearchHeroes = () => {
     }
   };
 
+  const resetSearch = () => {
+    search === "" && setSearch("Spider");
+  };
+
+  const handleClick = (id: number) => {
+    setHeroId(id);
+    navigate(RoutingPath.heroView);
+  };
+
   useEffect(() => {
     searchTerm && searchCharacter();
-    console.log(characterName);
+    resetSearch();
   }, [searchTerm]);
 
   return (
     <div className="searchWrapper">
-      <input type="text" onChange={(e) => setSearch(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Start typeing"
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <div className="characterGrid">
-        {characterName?.results?.map(({ name, thumbnail, i }: any) => {
+        {characterName?.results?.map(({ name, thumbnail, id, i }: any) => {
           return (
             <div key={i} className="gridItem">
-              <SearchCharacter image={thumbnail.path} name={name} />
+              <SearchCharacter
+                image={thumbnail.path}
+                name={name}
+                click={() => handleClick(id)}
+              />
             </div>
           );
         })}

@@ -3,13 +3,22 @@
   flex-direction: column;
   align-items: center;
   max-width: var(--max-width);
-  width: 100%;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.searchWrapper input {
+  margin: 10px 0;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  border-color: black;
 }
 
 .characterGrid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(4, auto);
+  gap: 1.5rem;
+  grid-template-columns: repeat(5, auto);
 }
 
 .gridItem {
@@ -17,4 +26,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.2s all ease-in;
+}
+
+.gridItem:hover {
+  transform: scale(120%);
+}
+
+.gridItem p {
+  background-color: black;
+  color: whitesmoke;
+  text-align: center;
+  width: 100%;
+  padding: 3px;
+  letter-spacing: 1px;
 }
