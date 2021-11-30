@@ -7,12 +7,14 @@ import "../../styles/heroview.css";
 const HeroView = () => {
   const { heroId } = useContext(HeroIdContext);
   const [hero, setHero] = useState<AxiosResponse>() as any;
+  const [copywrite, setCopywrite] = useState("");
 
   const fetchHero = async () => {
     try {
       const { data } = await MarvelService.getSpcificHero(heroId);
-      console.log(data.data.results[0]);
+      console.log(data);
       setHero(data.data.results[0]);
+      setCopywrite(data.attributionText);
     } catch (error) {
       console.log(error);
     }
@@ -31,8 +33,22 @@ const HeroView = () => {
           />
         </div>
         <div className="heroContentContainer">
-          <h3>{hero?.name}</h3>
-          <p>{hero?.description}</p>
+          <div className="heroNameContainer">
+            <h3>{hero?.name}</h3>
+          </div>
+          <div className="heroDescriptionContainer">
+            <p>{hero?.description}</p>
+          </div>
+          <div className="heroAttributionContainer">
+            <a
+              href={hero?.urls[0].url}
+              target="_blank"
+              className="ctn-btn learn-more"
+            >
+              learn more
+            </a>
+            <p>{copywrite}</p>
+          </div>
         </div>
       </div>
     </div>
