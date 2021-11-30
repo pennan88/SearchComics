@@ -1,18 +1,12 @@
 interface iProps {
   image: string;
   name: string;
-  description: string;
 }
-export const SearchCharacter: React.FC<iProps> = ({
-  image,
-  name,
-  description,
-}) => {
+export const SearchCharacter: React.FC<iProps> = ({ image, name }) => {
   return (
     <>
       <img src={image + "/portrait_fantastic.jpg"} alt="" />
-      <p>{name}</p>
-      <p>{description}</p>
+      <p style={{ backgroundColor: "black", color: "white" }}>{name}</p>
     </>
   );
 };
