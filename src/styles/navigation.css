@@ -69,5 +69,20 @@
 
 .navItem:hover {
   color: #ed9526;
-  transform: scale(120%);
+}
+
+@media screen and (min-width: 768px) {
+  .headerBackground h1 {
+    font-size: 3em;
+  }
+
+  .navItem {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navItem {
+    font-size: 25px;
+  }
 }

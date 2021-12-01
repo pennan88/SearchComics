@@ -20,7 +20,7 @@ export const RandomComic = () => {
     getComics();
   }, []);
   return (
-    <div className="comicCardContainer">
+    <div className="comicGridItem">
       <Display path={comic} />
     </div>
   );

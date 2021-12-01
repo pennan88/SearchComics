@@ -1,6 +1,7 @@
 .searchWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: var(--max-width);
   width: 100vw;
@@ -12,50 +13,64 @@
   font-size: 20px;
   padding: 20px;
   text-align: center;
-  border-color: black;
 }
 
 .characterGrid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(1, auto);
 }
 
 .gridItem {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  display: flex;
+  min-width: 280px;
+  width: 280px;
+  min-height: 460px;
+  height: 460px;
+  flex-direction: column;
   align-items: center;
-  transition: 0.2s all ease-in;
+  margin: 20px 0;
 }
 
-.gridItem:hover {
-  transform: scale(120%);
+.gridItem img {
+  width: inherit;
+  height: inherit;
+  border-color: black;
+  border-radius: 12px;
 }
-
 .gridItem p {
-  background-color: black;
-  color: whitesmoke;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 12px;
   text-align: center;
+  padding: 10px;
   width: 100%;
-  padding: 3px;
-  letter-spacing: 1px;
+  margin-top: 5px;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 768px) {
   .characterGrid {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(2, auto);
+  }
+  .gridItem {
+    margin: 10px 10px;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 1024px) {
   .characterGrid {
     grid-template-columns: repeat(3, auto);
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 1200px) {
   .characterGrid {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .characterGrid {
+    grid-template-columns: repeat(5, auto);
   }
 }

@@ -25,11 +25,11 @@ export const HomeView = () => {
       <div className="homeMainContainer">
         <RandomCharacter />
       </div>
-      {/* <div className="homeComicsContainer">
+      <div className="homeComicsContainer">
         <RandomComic />
         <RandomComic />
         <RandomComic />
-      </div> */}
+      </div>
     </div>
   );
 };

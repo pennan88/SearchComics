@@ -11,14 +11,3 @@ export const SearchCharacter: React.FC<iProps> = ({ image, name, click }) => {
     </>
   );
 };
-// {characterName?.results?.map(({ name, thumbnail, id, i }: any) => {
-//   return (
-//     <div key={i} className="gridItem">
-//       <SearchCharacter
-//         image={thumbnail.path}
-//         name={name}
-//         Click={() => handleClick(id)}
-//       />
-//     </div>
-//   );
-// })}
