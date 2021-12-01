@@ -40,11 +40,13 @@ export const RandomCharacter = () => {
       </div>
       <div className="homeContentContainer">
         <h1>{characters[randomNumber]?.name}</h1>
-        <p>
-          {characters[randomNumber]?.description
-            ? characters[randomNumber]?.description
-            : "No available description"}
-        </p>
+        <div className="homeInnerContentContainer">
+          <p>
+            {characters[randomNumber]?.description
+              ? characters[randomNumber]?.description
+              : "No available description"}
+          </p>
+        </div>
         <div className="homeSecondConetentContainer">
           <div className="ctn-btn">
             <p>Learn more!</p>
