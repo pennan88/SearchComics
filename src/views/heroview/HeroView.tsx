@@ -37,7 +37,11 @@ const HeroView = () => {
             <h3>{hero?.name}</h3>
           </div>
           <div className="heroDescriptionContainer">
-            <p>{hero?.description}</p>
+            <p>
+              {hero?.description
+                ? hero?.description
+                : "No available description"}
+            </p>
           </div>
           <div className="heroAttributionContainer">
             <a

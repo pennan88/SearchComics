@@ -8,17 +8,17 @@ export const HomeView = () => {
   const { setRandomNumber } = useContext(RandomNumberContext);
   const { setRandomOffset } = useContext(RandomOffsetContext);
 
-  const randomNumberGen = (max: number) => {
-    return setRandomNumber(Math.floor(Math.random() * max));
+  const randomNumberGen = () => {
+    return setRandomNumber(Math.floor(Math.random() * 100));
   };
 
-  const randomOffset = (max: number) => {
-    return setRandomOffset(Math.floor(Math.random() * max));
+  const randomOffset = () => {
+    return setRandomOffset(Math.floor(Math.random() * 1400));
   };
 
   useEffect(() => {
-    randomNumberGen(100);
-    randomOffset(1400);
+    randomNumberGen();
+    randomOffset();
   }, []);
   return (
     <div className="homeWrapper">

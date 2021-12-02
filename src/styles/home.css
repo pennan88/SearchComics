@@ -103,9 +103,14 @@
     align-items: center;
   }
   .homeContentContainer {
-    
     height: 40vh;
     margin: 0 10px;
     justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .homeComicsContainer {
+    grid-template-columns: repeat(3, auto);
   }
 }
