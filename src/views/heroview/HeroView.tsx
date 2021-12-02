@@ -1,20 +1,25 @@
 import { AxiosResponse } from "axios";
 import { useContext, useEffect, useState } from "react";
+import Hero from "../../components/Hero";
+import { Loader } from "../../components/Loader";
 import MarvelService from "../../shared/api/services/marvelapi/MarvelService";
 import { HeroIdContext } from "../../shared/provider/HeroIdProvider";
 import "../../styles/heroview.css";
 
 const HeroView = () => {
   const { heroId } = useContext(HeroIdContext);
+  const [loading, setLoading] = useState<boolean>(false);
   const [hero, setHero] = useState<AxiosResponse>() as any;
   const [copywrite, setCopywrite] = useState("");
 
   const fetchHero = async () => {
     try {
+      setLoading(true);
       const { data } = await MarvelService.getSpcificHero(heroId);
       console.log(data);
       setHero(data.data.results[0]);
       setCopywrite(data.attributionText);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -23,40 +28,23 @@ const HeroView = () => {
   useEffect(() => {
     fetchHero();
   }, []);
-  return (
-    <div className="heroWrapper">
-      <div className="heroContainer">
-        <div className="heroImageContainer">
-          <img
-            src={hero ? hero.thumbnail.path + "/portrait_uncanny.jpg" : ""}
-            alt=""
+  if (!loading) {
+    return (
+      <div className="heroWrapper">
+        <div className="heroContainer">
+          <Hero
+            thumbnail={hero?.thumbnail.path + "/portrait_uncanny.jpg"}
+            name={hero?.name}
+            description={hero?.description}
+            url={hero?.urls[0].url}
+            copywrite={copywrite}
           />
         </div>
-        <div className="heroContentContainer">
-          <div className="heroNameContainer">
-            <h3>{hero?.name}</h3>
-          </div>
-          <div className="heroDescriptionContainer">
-            <p>
-              {hero?.description
-                ? hero?.description
-                : "No available description"}
-            </p>
-          </div>
-          <div className="heroAttributionContainer">
-            <a
-              href={hero?.urls[0].url}
-              target="_blank"
-              className="ctn-btn learn-more"
-            >
-              learn more
-            </a>
-            <p>{copywrite}</p>
-          </div>
-        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Loader />;
+  }
 };
 
 export default HeroView;

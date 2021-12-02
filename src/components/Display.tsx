@@ -11,10 +11,8 @@ export const Display = (props: { path: any }) => {
     <>
       <img
         src={
-          props.path
-            ? props.path?.[randomNumberGen()]?.thumbnail?.path +
-              "/portrait_uncanny.jpg"
-            : PlaceHolader
+          props.path?.[randomNumberGen()]?.thumbnail?.path +
+          "/portrait_uncanny.jpg"
         }
         alt=""
       />

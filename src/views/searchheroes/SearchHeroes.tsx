@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../../components/Loader";
 import { SearchCharacter } from "../../components/SearchCharacter";
 import { useDebounce } from "../../hooks/useDebounce";
 import RoutingPath from "../../routes/RoutingPath";
@@ -10,15 +11,18 @@ import "../../styles/searchherores.css";
 export const SearchHeroes = () => {
   const [characterName, setCharacterName] = useState() as any;
   const [search, setSearch] = useState<string>("Spider");
+  const [loading, setLoading] = useState<boolean>(false);
   const { setHeroId } = useContext(HeroIdContext);
   const searchTerm = useDebounce(search, 500);
   const navigate = useNavigate();
 
   const searchCharacter = async () => {
     try {
+      setLoading(true);
       const { data } = await MarvelService.searchCharacter(search);
       console.log(data.data);
       setCharacterName(data.data);
+      setLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -38,26 +42,30 @@ export const SearchHeroes = () => {
     resetSearch();
   }, [searchTerm]);
 
-  return (
-    <div className="searchWrapper">
-      <input
-        type="text"
-        placeholder="Start typeing"
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className="characterGrid">
-        {characterName?.results?.map(({ name, thumbnail, id, i }: any) => {
-          return (
-            <div key={i} className="gridItem">
-              <SearchCharacter
-                image={thumbnail.path}
-                name={name}
-                click={() => handleClick(id)}
-              />
-            </div>
-          );
-        })}
+  if (!loading) {
+    return (
+      <div className="searchWrapper">
+        <input
+          type="text"
+          placeholder="Start typeing"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="characterGrid">
+          {characterName?.results?.map(({ name, thumbnail, id, i }: any) => {
+            return (
+              <div key={i} className="gridItem">
+                <SearchCharacter
+                  image={thumbnail.path}
+                  name={name}
+                  click={() => handleClick(id)}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Loader />;
+  }
 };
