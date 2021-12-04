@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import PlaceHolader from "../shared/images/placeholder.png";
 import MarvelService from "../shared/api/services/marvelapi/MarvelService";
 import { RandomNumberContext } from "../shared/provider/RandomNumberProvider";
 import { RandomOffsetContext } from "../shared/provider/RandomOffsetProvider";

@@ -26,7 +26,12 @@ const Hero: React.FC<iProps> = ({
           <p>{description ? description : "No available description"}</p>
         </div>
         <div className="heroAttributionContainer">
-          <a href={url} target="_blank" className="ctn-btn learn-more">
+          <a
+            href={url}
+            rel="noreferrer"
+            target="_blank"
+            className="ctn-btn learn-more"
+          >
             learn more
           </a>
           <p>{copywrite}</p>
