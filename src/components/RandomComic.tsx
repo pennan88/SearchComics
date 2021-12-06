@@ -27,7 +27,7 @@ export const RandomComic = () => {
   if (!loading) {
     return (
       <div className="comicGridItem">
-        <Display path={comic} />
+        <Display path={comic} title={comic} />
       </div>
     );
   } else {

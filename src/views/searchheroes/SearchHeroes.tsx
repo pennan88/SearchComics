@@ -42,14 +42,9 @@ export const SearchHeroes = () => {
     resetSearch();
   }, [searchTerm]);
 
-  if (!loading) {
-    return (
-      <div className="searchWrapper">
-        <input
-          type="text"
-          placeholder="Start typeing"
-          onChange={(e) => setSearch(e.target.value)}
-        />
+  const Loaded = () => {
+    if (!loading) {
+      return (
         <div className="characterGrid">
           {characterName?.results?.map(({ name, thumbnail, id, i }: any) => {
             return (
@@ -63,9 +58,20 @@ export const SearchHeroes = () => {
             );
           })}
         </div>
-      </div>
-    );
-  } else {
-    return <Loader />;
-  }
+      );
+    } else {
+      return <Loader />;
+    }
+  };
+
+  return (
+    <div className="searchWrapper">
+      <input
+        type="text"
+        placeholder="Start typeing"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {Loaded()}
+    </div>
+  );
 };

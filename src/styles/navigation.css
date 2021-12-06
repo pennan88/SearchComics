@@ -64,11 +64,6 @@
   font-size: 15px;
   margin: 5px 10px;
   letter-spacing: 1px;
-  transition: all 0.2s ease;
-}
-
-.navItem:hover {
-  color: #ed9526;
 }
 
 @media screen and (min-width: 768px) {
@@ -84,5 +79,10 @@
 @media screen and (min-width: 1024px) {
   .navItem {
     font-size: 25px;
+    transition: all 0.2s ease;
+  }
+  .navItem:hover {
+    transform: scale(110%);
+    color: orange;
   }
 }

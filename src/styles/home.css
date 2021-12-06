@@ -65,11 +65,13 @@
   width: 100%;
 }
 .ctn-btn {
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: green;
   color: white;
   border: 1px black solid;
   margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .ctn-btn p {
@@ -84,8 +86,11 @@
 }
 
 .comicGridItem {
-  width: 290px;
-  height: 380px;
+  text-align: center;
+  background-color: white;
+}
+.comicGridItem p {
+  margin: 3px;
 }
 
 .comicGridItem img {
@@ -112,5 +117,15 @@
 @media screen and (min-width: 1024px) {
   .homeComicsContainer {
     grid-template-columns: repeat(3, auto);
+  }
+
+  .ctn-btn {
+    transition: all 0.2s ease-in;
+  }
+
+  .ctn-btn:hover {
+    transform: scale(110%);
+    color: green;
+    background-color: white;
   }
 }

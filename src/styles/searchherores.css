@@ -1,10 +1,9 @@
 .searchWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   max-width: var(--max-width);
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
 }
 
@@ -30,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
+  cursor: pointer;
 }
 
 .gridItem img {
@@ -60,6 +60,14 @@
 @media screen and (min-width: 1024px) {
   .characterGrid {
     grid-template-columns: repeat(3, auto);
+  }
+
+  .gridItem {
+    transition: ease-in 0.3s all;
+  }
+
+  .gridItem:hover {
+    transform: scale(110%);
   }
 }
 
