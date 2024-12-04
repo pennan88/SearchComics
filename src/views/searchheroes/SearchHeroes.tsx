@@ -68,7 +68,7 @@ export const SearchHeroes = () => {
     <div className="searchWrapper">
       <input
         type="text"
-        placeholder="Start typeing"
+        placeholder="Start typing"
         onChange={(e) => setSearch(e.target.value)}
       />
       {Loaded()}
